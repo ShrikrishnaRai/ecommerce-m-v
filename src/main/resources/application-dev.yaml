@@ -1,0 +1,65 @@
+spring:
+  security:
+    user:
+      name: admin
+      password: client@admin
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 100MB
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost/ecommerce-mv-v?autoReconnect=true
+    username: root
+    password: Linux_ubuntu1
+#    url: jdbc:mysql://ecommerce-mv-v.csibqxxdpue1.us-east-1.rds.amazonaws.com/ecommerce-mv-v?autoReconnect=true
+#    username: shree
+#    password: root
+    platform: mysql
+    continue-on-error: true
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  boot:
+    admin:
+      client:
+        url: http://localhost:8090
+        username: admin
+        password: client@admin
+        instance:
+          metadata:
+            user:
+              name: ${spring.security.user.name}
+              password: ${spring.security.user.password}
+
+
+endpointUrl:
+  https://s3.us-east-2.amazonaws.com
+accessKey:
+  s3accesskey
+secretKey:
+  s3secretkey
+bucketName:
+  s3bucketname
+region:
+  us-east-2
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+  endpoint:
+    health:
+      show-details: always
+
+
+
+app:
+  firebase-configuration-file: firebase-cloud-messaging/ecommerce-mv-v-firebase-adminsdk-d52tp-be391aa4cd.json
+
+  notifications:
+    defaults: {topic: 'common', title: 'Common topic - Hello', message: 'Sending test message \uD83D\uDE42', token: 'ss22t03wz208eg:APA2idkkow223FE_0v5yHxqCLTyxAQafj6nWaqi4QzwZTW004q1PUux63UsFN', payloadMessageId: '123', payloadData: 'Hello. This is payload content.'}
