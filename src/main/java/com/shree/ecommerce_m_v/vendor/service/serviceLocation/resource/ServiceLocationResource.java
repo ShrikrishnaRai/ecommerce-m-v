@@ -1,7 +1,7 @@
 package com.shree.ecommerce_m_v.vendor.service.serviceLocation.resource;
 
-import com.shree.ecommerce_m_v.vendor.service.serviceLocation.service.dto.ServiceLocationDTO;
 import com.shree.ecommerce_m_v.vendor.service.serviceLocation.service.ServiceLocationService;
+import com.shree.ecommerce_m_v.vendor.service.serviceLocation.service.dto.ServiceLocationDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

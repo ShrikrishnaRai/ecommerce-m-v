@@ -1,7 +1,7 @@
 package com.shree.ecommerce_m_v.customer.wishlist.resource;
 
 import com.shree.ecommerce_m_v.customer.wishlist.model.DTO.WishlistDTO;
-import com.shree.ecommerce_m_v.customer.wishlist.service.WishlistService;
+import com.shree.ecommerce_m_v.customer.wishlist.service.WishListService;
 import com.shree.ecommerce_m_v.utils.values.AuthoritiesConstants;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +18,7 @@ import java.util.List;
 public class WishListResource {
 
     @Autowired
-    private WishlistService wishlistService;
+    private WishListService wishlistService;
 
     @GetMapping
     @PreAuthorize("hasAuthority(\"" + AuthoritiesConstants.USER + "\")" +

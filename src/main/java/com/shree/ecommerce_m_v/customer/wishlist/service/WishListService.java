@@ -10,30 +10,30 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class WishListServiceImpl extends WishListMapper implements  WishlistService {
+public class WishListService extends WishListMapper {
 
     @Autowired
     private WishlistRepository wishlistRepository;
 
 
-    @Override
+
     public String saveWishlist(WishlistDTO wishlistDTO) {
         wishlistRepository.save(toEntity(wishlistDTO));
         return ResponseValue.SAVE_SUCCESS;
     }
 
-    @Override
+
     public List<WishlistDTO> getListOfWishList() {
         return toDTOs(wishlistRepository.findAll());
     }
 
-    @Override
+
     public WishlistDTO getWishListByCustomerId(Long customerId) {
 
         return toDTO(wishlistRepository.getWishlistEntityByCustomerId(customerId));
     }
 
-    @Override
+
     public WishlistDTO getWishListById(Long wishListId) {
         return toDTO(wishlistRepository.getOne(wishListId));
     }

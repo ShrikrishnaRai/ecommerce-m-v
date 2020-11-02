@@ -1,7 +1,7 @@
 package com.shree.ecommerce_m_v.vendor.service.serviceCategory.resource;
 
-import com.shree.ecommerce_m_v.vendor.service.serviceCategory.service.dto.ServiceCategoryDTO;
 import com.shree.ecommerce_m_v.vendor.service.serviceCategory.service.ServiceCategoryService;
+import com.shree.ecommerce_m_v.vendor.service.serviceCategory.service.dto.ServiceCategoryDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.web.PagedResourcesAssembler;
 import org.springframework.hateoas.EntityModel;

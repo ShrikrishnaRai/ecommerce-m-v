@@ -1,7 +1,7 @@
 package com.shree.ecommerce_m_v.vendor.service.service.resource;
 
-import com.shree.ecommerce_m_v.vendor.service.service.service.dto.ServiceDTO;
 import com.shree.ecommerce_m_v.vendor.service.service.service.ServiceEntityService;
+import com.shree.ecommerce_m_v.vendor.service.service.service.dto.ServiceDTO;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.web.PagedResourcesAssembler;

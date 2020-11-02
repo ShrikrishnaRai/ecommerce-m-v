@@ -1,8 +1,8 @@
 package com.shree.ecommerce_m_v.vendor.vendorDocument.resource;
 
 import com.shree.ecommerce_m_v.utils.values.AuthoritiesConstants;
-import com.shree.ecommerce_m_v.vendor.vendorDocument.service.dto.VendorDocumentDTO;
 import com.shree.ecommerce_m_v.vendor.vendorDocument.service.VendorDocumentService;
+import com.shree.ecommerce_m_v.vendor.vendorDocument.service.dto.VendorDocumentDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.web.PagedResourcesAssembler;
 import org.springframework.hateoas.EntityModel;

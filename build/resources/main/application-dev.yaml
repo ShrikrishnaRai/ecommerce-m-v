@@ -9,9 +9,9 @@ spring:
       max-request-size: 100MB
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost/ecommerce-mv-v?autoReconnect=true
+    url: jdbc:mysql://localhost/ecommerce?autoReconnect=true
     username: root
-    password: Linux_ubuntu1
+    password: Linux_fedora1
 #    url: jdbc:mysql://ecommerce-mv-v.csibqxxdpue1.us-east-1.rds.amazonaws.com/ecommerce-mv-v?autoReconnect=true
 #    username: shree
 #    password: root
@@ -37,11 +37,11 @@ spring:
 endpointUrl:
   https://s3.us-east-2.amazonaws.com
 accessKey:
-  AKIAIQEHDPMTRE5EZWHA
+  s3accesskey
 secretKey:
-  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
+  s3secretkey
 bucketName:
-  justnepwrtmerchantbucket
+  s3bucketname
 region:
   us-east-2
 

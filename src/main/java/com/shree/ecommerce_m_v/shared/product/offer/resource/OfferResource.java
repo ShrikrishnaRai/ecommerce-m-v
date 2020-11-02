@@ -1,7 +1,7 @@
 package com.shree.ecommerce_m_v.shared.product.offer.resource;
 
-import com.shree.ecommerce_m_v.shared.product.offer.service.dto.OfferDTO;
 import com.shree.ecommerce_m_v.shared.product.offer.service.OfferService;
+import com.shree.ecommerce_m_v.shared.product.offer.service.dto.OfferDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.web.PagedResourcesAssembler;
 import org.springframework.hateoas.EntityModel;

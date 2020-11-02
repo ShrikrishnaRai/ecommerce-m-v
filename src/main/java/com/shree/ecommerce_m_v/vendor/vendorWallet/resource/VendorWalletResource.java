@@ -1,8 +1,8 @@
 package com.shree.ecommerce_m_v.vendor.vendorWallet.resource;
 
 import com.shree.ecommerce_m_v.utils.values.AuthoritiesConstants;
-import com.shree.ecommerce_m_v.vendor.vendorWallet.service.dto.VendorWalletDTO;
 import com.shree.ecommerce_m_v.vendor.vendorWallet.service.VendorWalletService;
+import com.shree.ecommerce_m_v.vendor.vendorWallet.service.dto.VendorWalletDTO;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.web.PagedResourcesAssembler;

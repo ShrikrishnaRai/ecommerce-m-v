@@ -1,7 +1,7 @@
 package com.shree.ecommerce_m_v.shared.product.size.resource;
 
-import com.shree.ecommerce_m_v.shared.product.size.service.dto.SizeMergerDTO;
 import com.shree.ecommerce_m_v.shared.product.size.service.SizeService;
+import com.shree.ecommerce_m_v.shared.product.size.service.dto.SizeMergerDTO;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.web.PagedResourcesAssembler;

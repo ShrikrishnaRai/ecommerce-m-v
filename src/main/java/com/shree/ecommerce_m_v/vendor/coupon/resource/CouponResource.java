@@ -1,7 +1,7 @@
 package com.shree.ecommerce_m_v.vendor.coupon.resource;
 
-import com.shree.ecommerce_m_v.vendor.coupon.service.dto.CouponDTO;
 import com.shree.ecommerce_m_v.vendor.coupon.service.CouponService;
+import com.shree.ecommerce_m_v.vendor.coupon.service.dto.CouponDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.web.PagedResourcesAssembler;
 import org.springframework.hateoas.EntityModel;

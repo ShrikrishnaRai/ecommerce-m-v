@@ -1,17 +1,71 @@
 package com.shree.ecommerce_m_v.customer.preBooking.service;
 
+import com.shree.ecommerce_m_v.customer.customer.model.entity.CustomerEntity;
 import com.shree.ecommerce_m_v.customer.preBooking.model.DTO.PreBookingDTO;
+import com.shree.ecommerce_m_v.customer.preBooking.model.entity.PreBookingEntity;
+import com.shree.ecommerce_m_v.customer.preBooking.repository.PreBookingRepository;
+import com.shree.ecommerce_m_v.customer.preBooking.service.mapper.PreBookingMapper;
+import com.shree.ecommerce_m_v.shared.product.product.model.entity.ProductEntity;
+import com.shree.ecommerce_m_v.utils.values.ResponseValue;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.stereotype.Service;
 
-public interface PreBookingService {
+import javax.transaction.Transactional;
+import java.util.stream.Collectors;
 
-    Page<PreBookingDTO> getListOfPreBookings(int page, String sortBy, String orderBy);
+@Service
+@Transactional
+public class PreBookingService extends PreBookingMapper  {
 
-    PreBookingDTO getPreBookingById( Long preBookingId);
+    @Autowired
+    private PreBookingRepository preBookingRepository;
 
-    String savePreBooking(PreBookingDTO preBookingDTO);
+    public Page<PreBookingDTO> getListOfPreBookings(int page, String sortBy, String orderBy) {
+        Pageable pageable = PageRequest.of(page,10, Sort.by(Sort.Direction.valueOf(orderBy),sortBy));
+        Page<PreBookingEntity> result = preBookingRepository.findAll(pageable);
+        return result.map(this::toDTO);
+    }
 
-    PreBookingDTO updatePreBookingById(Long preBookingId,PreBookingDTO preBookingDTO);
+    public PreBookingDTO getPreBookingById(Long preBookingId) {
+        return toDTO(preBookingRepository.getOne(preBookingId));
+    }
 
-    String deletePreBookingById(Long preBookingId);
+    public String savePreBooking(PreBookingDTO preBookingDTO) {
+        preBookingRepository.save(toEntity(preBookingDTO));
+        return ResponseValue.SAVE_SUCCESS;
+    }
+
+    public PreBookingDTO updatePreBookingById(Long preBookingId, PreBookingDTO preBookingDTO) {
+        PreBookingEntity preBookingEntity = preBookingRepository.getOne(preBookingId);
+        preBookingEntity.setQuantity(preBookingDTO.getQuantity());
+        preBookingEntity.setPrice(preBookingDTO.getPrice());
+        preBookingEntity.setTotalPrice(preBookingDTO.getTotalPrice());
+        preBookingEntity.setStatus(preBookingDTO.getStatus());
+        if(preBookingDTO.getProductMergerDTOList() !=null){
+            preBookingEntity.setProductEntities(preBookingDTO.getProductMergerDTOList()
+                    .stream()
+                    .map(productMergerDTO -> ProductEntity.builder()
+                            .productId(productMergerDTO.getProductId())
+                            .productName(productMergerDTO.getProductName())
+                            .build())
+                    .collect(Collectors.toList()));
+        }
+        if(preBookingDTO.getCustomerMergerDTO() !=null){
+            preBookingEntity.setCustomerEntity(CustomerEntity.builder()
+                    .customerId(preBookingDTO.getCustomerMergerDTO().getId())
+                    .username(preBookingDTO.getCustomerMergerDTO().getUsername())
+                    .build());
+        }
+        preBookingRepository.saveAndFlush(preBookingEntity);
+        return toDTO(preBookingEntity);
+    }
+
+    public String deletePreBookingById(Long preBookingId) {
+        preBookingRepository.deleteById(preBookingId);
+        return ResponseValue.DELETE_SUCCESS;
+    }
 }

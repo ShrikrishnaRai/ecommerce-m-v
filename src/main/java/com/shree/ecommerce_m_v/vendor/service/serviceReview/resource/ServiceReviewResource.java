@@ -1,7 +1,7 @@
 package com.shree.ecommerce_m_v.vendor.service.serviceReview.resource;
 
-import com.shree.ecommerce_m_v.vendor.service.serviceReview.service.dto.ServiceReviewDTO;
 import com.shree.ecommerce_m_v.vendor.service.serviceReview.service.ServiceReviewService;
+import com.shree.ecommerce_m_v.vendor.service.serviceReview.service.dto.ServiceReviewDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

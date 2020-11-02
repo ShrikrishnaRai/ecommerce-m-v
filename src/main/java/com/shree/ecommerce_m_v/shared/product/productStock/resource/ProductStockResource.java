@@ -1,7 +1,7 @@
 package com.shree.ecommerce_m_v.shared.product.productStock.resource;
 
-import com.shree.ecommerce_m_v.shared.product.productStock.service.dto.ProductStockDTO;
 import com.shree.ecommerce_m_v.shared.product.productStock.service.ProductStockService;
+import com.shree.ecommerce_m_v.shared.product.productStock.service.dto.ProductStockDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
